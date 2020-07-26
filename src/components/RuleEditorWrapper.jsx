@@ -32,11 +32,13 @@ function RuleWrapperEditor(props) {
   return (
     <div className="container">
       <div className="operatorContainer">
-        <Select
-          value={BOOLEAN_OPERATOR_OPTIONS_MAP[rule.operator]}
-          onChange={onBoolenOperatorChange}
-          options={BOOLEAN_OPERATOR_OPTIONS}
-        />
+        <div style={{ width: "12%" }}>
+          <Select
+            value={BOOLEAN_OPERATOR_OPTIONS_MAP[rule.operator]}
+            onChange={onBoolenOperatorChange}
+            options={BOOLEAN_OPERATOR_OPTIONS}
+          />
+        </div>
         {Object.keys(rule.conditions).map((ruleKey, i) => (
           <ConditionEditor
             key={`${ruleId}-${i}`}

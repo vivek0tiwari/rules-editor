@@ -10,41 +10,6 @@ const defalutState = {
         value: "2000",
         id: "a",
       },
-      b: {
-        fact: "zip_code",
-        operator: "IN",
-        value: ["active", "paid-leave"],
-        id: "b",
-      },
-      c: {
-        fact: "age",
-        operator: "IN",
-        value: [22, 20],
-        id: "c",
-      },
-    },
-  },
-  "2": {
-    operator: "all",
-    conditions: {
-      a: {
-        fact: "monthly_rental",
-        operator: "EQ",
-        value: "2000",
-        id: "a",
-      },
-      b: {
-        fact: "zip_code",
-        operator: "IN",
-        value: ["active", "paid-leave"],
-        id: "b",
-      },
-      c: {
-        fact: "age",
-        operator: "IN",
-        value: [22, 20],
-        id: "c",
-      },
     },
   },
 };
@@ -54,7 +19,7 @@ const addCondition = (state, action) => {
   const { conditionId, ruleId, ...rest } = data;
 
   const rule = state[ruleId];
-  const conditions = rule.conditions;
+  const conditions = rule.conditions || {};
   return {
     ...state,
     [ruleId]: {
@@ -123,6 +88,19 @@ const changeOperator = (state, action) => {
     },
   };
 };
+
+const addRule = (state, action) => {
+  const { data } = action;
+  const { ruleId } = data;
+  return {
+    ...state,
+    [ruleId]: {
+      conditions: [],
+      operator: "all",
+    },
+  };
+};
+
 const rules = (state = defalutState, action) => {
   const { type } = action;
   switch (type) {
@@ -134,6 +112,8 @@ const rules = (state = defalutState, action) => {
       return changeValue(state, action);
     case ConditionActions.CHANGE_OPERATOR:
       return changeOperator(state, action);
+    case ConditionActions.ADD_RULE:
+      return addRule(state, action);
     default:
       return state;
   }

@@ -46,7 +46,9 @@
 
 .container {
   display: flex;
-  margin: 10px;
+  margin: 8px;
+  border: 1px solid;
+  padding: 8px;
 }
 .operatorContainer {
   width: 100%;

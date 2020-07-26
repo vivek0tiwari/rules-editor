@@ -24,10 +24,29 @@ export const changeOperator = (ruleId, value) => ({
   type: "CHANGE_OPERATOR",
   data: { ruleId, value },
 });
-
+export const deleteRule = (ruleId) => ({
+  type: "DELETE_RULE",
+  data: { ruleId },
+});
+export const addRule = () => {
+  const ruleId = uuidv4();
+  const conditionId = uuidv4();
+  return {
+    type: "ADD_RULE",
+    data: {
+      conditionId: conditionId,
+      ruleId: ruleId,
+      fact: null,
+      operator: null,
+      value: null,
+    },
+  };
+};
 export const ConditionActions = {
   ADD_CONDITITON: "ADD_CONDITITON",
   DELETE_CONDITION: "DELETE_CONDITION",
   CHANGE_VALUE: "CHANGE_VALUE",
   CHANGE_OPERATOR: "CHANGE_OPERATOR",
+  DELETE_RULE: "DELETE_RULE",
+  ADD_RULE: "ADD_RULE",
 };
