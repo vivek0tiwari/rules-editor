@@ -15,6 +15,7 @@ function RuleWrapperEditor(props) {
     handleDeleteCondition,
     handleChangeValue,
     handleOperatorChange,
+    handleDeleteRule,
   } = props;
 
   const onBoolenOperatorChange = (value) => {
@@ -28,16 +29,33 @@ function RuleWrapperEditor(props) {
   const onChangeValue = (ruleId, conditionId, key, value) => {
     handleChangeValue && handleChangeValue(ruleId, conditionId, key, value);
   };
-
+  const onDeleteRuleCLick = () => {
+    const { ruleId } = props;
+    handleDeleteRule && handleDeleteRule(ruleId);
+  };
   return (
     <div className="container">
       <div className="operatorContainer">
-        <div style={{ width: "12%" }}>
-          <Select
-            value={BOOLEAN_OPERATOR_OPTIONS_MAP[rule.operator]}
-            onChange={onBoolenOperatorChange}
-            options={BOOLEAN_OPERATOR_OPTIONS}
-          />
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <div className="ruleItems">
+            <Select
+              value={BOOLEAN_OPERATOR_OPTIONS_MAP[rule.operator]}
+              onChange={onBoolenOperatorChange}
+              options={BOOLEAN_OPERATOR_OPTIONS}
+            />
+          </div>
+          <button
+            onClick={onDeleteRuleCLick}
+            style={{ width: "100px", height: "26px" }}
+          >
+            Delete Rule
+          </button>
         </div>
         {Object.keys(rule.conditions).map((ruleKey, i) => (
           <ConditionEditor

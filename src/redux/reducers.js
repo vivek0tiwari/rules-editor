@@ -100,6 +100,15 @@ const addRule = (state, action) => {
     },
   };
 };
+const deleteRule = (state, action) => {
+  const { data } = action;
+  const { ruleId } = data;
+
+  const { [ruleId]: deleted, ...restRule } = state;
+  return {
+    ...restRule,
+  };
+};
 
 const rules = (state = defalutState, action) => {
   const { type } = action;
@@ -114,6 +123,8 @@ const rules = (state = defalutState, action) => {
       return changeOperator(state, action);
     case ConditionActions.ADD_RULE:
       return addRule(state, action);
+    case ConditionActions.DELETE_RULE:
+      return deleteRule(state, action);
     default:
       return state;
   }

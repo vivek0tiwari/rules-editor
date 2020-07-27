@@ -8,6 +8,7 @@ import {
   changeValue,
   changeOperator,
   addRule,
+  deleteRule,
 } from "../redux/actions";
 //Actions
 // Add New Rule with and/or condition
@@ -34,6 +35,9 @@ class RuleEditor extends Component {
   handleNewRule = () => {
     this.props.dispatch(addRule());
   };
+  handleDeleteRule = (ruleId) => {
+    this.props.dispatch(deleteRule(ruleId));
+  };
   render() {
     return (
       <div>
@@ -49,6 +53,7 @@ class RuleEditor extends Component {
           handleDeleteCondition={this.handleDeleteCondition}
           handleChangeValue={this.handleChangeValue}
           handleOperatorChange={this.handleOperatorChange}
+          handleDeleteRule={this.handleDeleteRule}
         />
       </div>
     );
