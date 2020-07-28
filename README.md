@@ -18,17 +18,18 @@ IN: "Contains",
 Data structure of state :
 
 ```javascript
-{"1": {
-operator: "all",
-conditions: {
-a: {
-fact: "monthly_rental",
-operator: "EQ",
-value: "2000",
-id: "a",
-},
-},
-},
+{
+"1": {
+        operator: "all",
+        conditions: {
+              a: {
+                  fact: "monthly_rental",
+                  operator: "EQ",
+                  value: "2000",
+                  id: "a",
+              },
+        },
+    },
 }
 ```
 
