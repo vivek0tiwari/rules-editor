@@ -4,16 +4,16 @@ This project contain simple UI for Rule editor with minimal features listed belo
 
 Feature
 
--Add/Edit Conditions
--Add/Edit Rules
--Support for AND/OR operators
--Currently supporting for below operators
-EQ: "=",
-LT: "<",
-GT: ">",
-LTE: "<=",
-GTE: ">=",
-IN: "Contains",
+- Add/Edit Conditions
+- Add/Edit Rules
+- Support for AND/OR operators
+- Currently supporting for below operators
+1. EQ: "=",
+2. LT: "<",
+3. GT: ">",
+4. LTE: "<=",
+5. GTE: ">=",
+6. IN: "Contains",
 
 Data structure of state :
 
