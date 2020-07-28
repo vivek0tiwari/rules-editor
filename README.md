@@ -1,6 +1,6 @@
 This project contain simple UI for Rule editor with minimal features listed below.
 
-### `Rule Editor UI with react`
+### `Rule Editor UI with react and redux`
 
 Feature
 
